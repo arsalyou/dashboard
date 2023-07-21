@@ -8,9 +8,15 @@
 
 # Approach Used
 
-Implemented DDD 
-Developed four separate modules (customer, product, sales, visitor)
-Optimized the queries and stored the data in the for effective read/write operations.
-Used Apollo Server v4
+Implemented DDD <br />
+Developed four separate modules (customer, product, sales, visitor) <br />
+Optimized the queries and stored the data in the for effective read/write operations. <br />
+Used Apollo Server v4 <br />
+
+# More imporvements that could be made 
+
+Implementation of dataloaders <br />
+
+
 
 Server will get started after running above commands.
