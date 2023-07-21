@@ -1,6 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require('source-map-support').install();
-
+import 'source-map-support/register'
 import express from 'express';
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
@@ -45,7 +43,7 @@ async function startServer() {
     resolvers,
     introspection: true, // enables introspection of the schema
     });
-    const { url } = await startStandaloneServer(server, { listen: { port: 3000 },
+    const { url } = await startStandaloneServer(server, { listen: { port: 4000 },
       });
       console.log(`🚀  Server ready at ${url}`);
 
