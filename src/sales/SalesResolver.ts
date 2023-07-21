@@ -14,21 +14,29 @@ async function generatesalesData() {
         for (let i = 1; i < 12; i++) { 
             monthlyData.push({
                 month: i, 
-                totalSales: faker.datatype.number({ min: 100, max: 400 }), 
-                totalUnits: faker.datatype.number({ min: 10, max: 40 }) 
+                saleStats: {
+                    totalSales: faker.datatype.number({ min: 100, max: 400 }), 
+                    totalUnits: faker.datatype.number({ min: 10, max: 40 }) 
+                }
             })
         }
         for (let i = 1; i < 20; i++) { 
             dailyData.push({
                 date: i, 
-                totalSales: faker.datatype.number({ min: 100, max: 400 }), 
-                totalUnits: faker.datatype.number({ min: 10, max: 40 }) 
+                saleStats: {
+                    totalSales: faker.datatype.number({ min: 100, max: 400 }), 
+                    totalUnits: faker.datatype.number({ min: 10, max: 40 }) 
+                }
             })
         }
-        // for now inserting all customer ids
-        allCustomers.forEach(customer => {
-            customerIDs.push(customer._id);
-        })
+        // for now inserting 5 customer ids
+        // allCustomers.forEach(customer => {
+            
+        //     customerIDs.push(customer._id);
+        // })
+        for(let i = 0 ; i < 5; i++){
+            customerIDs.push(allCustomers[i]._id);
+        }
         console.log(years[i]);
         salesData.push({
             yearlySalesTotal: faker.datatype.number({ min: 10000, max: 40000 }),
@@ -48,15 +56,21 @@ const SaleResolvers = {
     Query: {
         
         async salesquery(_, { }, context) {
+            // const options = { strictPopulate: false };
+            try{
 
-            const res = await SalesModel.find();
-            if(!res?.length){
-                const salesData = await generatesalesData();
-                SalesModel.insertMany(salesData);
-            }
-            console.log(res);
+            const res = await SalesModel.find().populate('productID').populate('customerIDs');
+            //console.log(JSON.stringify(res));
+            // if(!res?.length){
+            //     const salesData = await generatesalesData();
+            //     return SalesModel.insertMany(salesData);
+            // }
+            //console.log(res);
 
             return res;
+            }catch(exec){
+               console.error(exec.toString());
+            }
         },
     },
 };

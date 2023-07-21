@@ -1,4 +1,4 @@
-import { Document } from 'mongoose';
+import { Document, Schema } from 'mongoose';
 import { Types } from 'mongoose';
 
 
@@ -22,7 +22,7 @@ export interface ISalesSchema extends Document {
     yearlyTotalSoldUnits: number;
     dailyData: DailyData[];
     monthlyData: MonthlyData[];
-    productID: Types.ObjectId,
+    productID: Schema.Types.Mixed,
     customerIDs: Types.ObjectId[];
 
   }

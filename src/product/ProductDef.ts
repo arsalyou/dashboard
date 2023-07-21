@@ -6,6 +6,7 @@ export const ProductData = gql`
 
     _id: String
     price: Int
+    name: String
     category: String
     customerIDs: [String]
 

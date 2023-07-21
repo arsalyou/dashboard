@@ -21,6 +21,22 @@ type MonthlyData {
   saleStats: SaleStats
 }
 
+type productData {
+    _id: String
+    price: Int
+    category: String
+    customerIDs: [String]
+}
+
+type customerData {
+    country: String
+    age: Int 
+    name: String
+    gender: String
+}
+
+
+
 # Define the ProductData type
 type SalesData {
   _id: ID!
@@ -29,8 +45,8 @@ type SalesData {
   year: Int
   dailyData: [DailyData]
   monthlyData: [MonthlyData]
-  productID: ID
-  customerIDs: [ID]
+  productID: productData
+  customerIDs: [customerData]
 }
  
  
