@@ -27,7 +27,7 @@ function generateProductsData() {
     return productsData; 
 }
     // Insert the data into MongoDB
-ProductModel.insertMany(generateProductsData());
+//ProductModel.insertMany(generateProductsData());
 
 
 
