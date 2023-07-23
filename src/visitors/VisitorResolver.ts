@@ -5,10 +5,13 @@ import faker from 'faker';
 const VisitorResolvers = {
     Query: {
         async visitorquery(_, { }, context) {
-
-            const res = await VisitorModel.find();
+            try{
+            const res = await VisitorModel.find().limit(100);
             console.log(res);
             return res;
+            }catch (exc) {
+                console.error(exc)
+            }
 
         },
     },
@@ -18,7 +21,8 @@ const VisitorResolvers = {
 
 function generateVisitorsData() { 
     const visitorsData = [];
-    for (let i = 0; i < 100; i++) { visitorsData.push({
+    for (let i = 0; i < 100; i++) { 
+        visitorsData.push({
         year: faker.datatype.number({ min: 2010, max: 2022 }),
         totalVisitors: faker.datatype.number({ min: 50, max: 500 }),
         totalLeadsGenerated: faker.datatype.number({ min: 2, max: 50 })
@@ -26,7 +30,7 @@ function generateVisitorsData() {
     return visitorsData; 
 }
     // Insert the data into MongoDB
-VisitorModel.insertMany(generateVisitorsData());
+//VisitorModel.insertMany(generateVisitorsData());
 
 
 

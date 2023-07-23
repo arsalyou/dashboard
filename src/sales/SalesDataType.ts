@@ -20,6 +20,7 @@ export interface ISalesSchema extends Document {
     year: number;
     yearlySalesTotal: number;
     yearlyTotalSoldUnits: number;
+    targetSales: number;
     dailyData: DailyData[];
     monthlyData: MonthlyData[];
     productID: Schema.Types.Mixed,

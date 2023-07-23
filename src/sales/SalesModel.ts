@@ -26,6 +26,7 @@ const SalesDataSchema = new Schema<ISalesSchema>({
   _id: { type: Schema.Types.ObjectId},
   yearlySalesTotal: { type: Number},
   yearlyTotalSoldUnits: { type: Number},
+  targetSales: { type: Number},
   year: { type: Number},
   dailyData: [dailyDataSchema],
   monthlyData: [monthlyDataSchema],

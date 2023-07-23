@@ -24,6 +24,7 @@ type MonthlyData {
 type productData {
     _id: String
     price: Int
+    name: String
     category: String
     customerIDs: [String]
 }
@@ -43,6 +44,7 @@ type SalesData {
   yearlySalesTotal: Float
   yearlyTotalSoldUnits: Int
   year: Int
+  targetSales: Int
   dailyData: [DailyData]
   monthlyData: [MonthlyData]
   productID: productData

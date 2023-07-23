@@ -41,6 +41,7 @@ async function generatesalesData() {
         salesData.push({
             yearlySalesTotal: faker.datatype.number({ min: 10000, max: 40000 }),
             yearlyTotalSoldUnits:  faker.datatype.number({ min: 100, max: 400 }),
+            targetSales: faker.datatype.number({ min: 200, max: 500 }),
             year: years[i],
             dailyData,
             monthlyData,

@@ -21,6 +21,7 @@ function generateProductsData() {
         productsData.push({
             price: faker.datatype.number({ min: 2010, max: 2022 }),
             category: faker.commerce.department(),
+            name: faker.commerce.productName(),
         }); 
     }
     return productsData; 
