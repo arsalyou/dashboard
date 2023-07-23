@@ -18,5 +18,10 @@ Used Apollo Server v4 <br />
 Implementation of dataloaders <br />
 
 
+## Run test cases
+
+### `npm test`
+
+
 
 Server will get started after running above commands.
