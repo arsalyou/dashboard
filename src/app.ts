@@ -8,6 +8,7 @@ import {resolvers} from './grapghql/resolvers';
 
 
 import * as mongoose from 'mongoose';
+//TODO - replace with env
 const db: string = "mongodb+srv://arsalyou03:QMeWJNBFpJCQGEpt@cluster0.i3fobil.mongodb.net/?retryWrites=true&w=majority";
 
 const connectDB = async () => {
@@ -21,16 +22,7 @@ const connectDB = async () => {
 };
 
 
-const app = express();
-const port = 3000;
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
-
-// app.listen(port, () => {
-//   return console.log(`Express is listening at http://localhost:${port}`);
-// });
 
 interface MyContext {
     token?: string;
@@ -38,6 +30,8 @@ interface MyContext {
 
 async function startServer() {
     await connectDB();
+    console.log(process.env.mongoURI);
+
     const server = new ApolloServer<MyContext>({
     typeDefs,
     resolvers,
