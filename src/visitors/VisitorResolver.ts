@@ -7,10 +7,11 @@ const VisitorResolvers = {
         async visitorquery(_, { }, context) {
             try{
             const res = await VisitorModel.find().limit(100);
-            console.log(res);
+            //console.log(res);
             return res;
-            }catch (exc) {
-                console.error(exc)
+            }catch (exec) {
+                console.error(exec.toString());
+                throw new Error(exec.toString());
             }
 
         },

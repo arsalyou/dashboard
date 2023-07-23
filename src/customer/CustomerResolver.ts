@@ -7,7 +7,7 @@ const CustomerResolvers = {
         async customerquery(_, { }, context) {
 
             const res = await CustomerModel.find();
-            console.log(res);
+            //console.log(res);
             return res;
         },
     },

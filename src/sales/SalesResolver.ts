@@ -37,7 +37,7 @@ async function generatesalesData() {
         for(let i = 0 ; i < 5; i++){
             customerIDs.push(allCustomers[i]._id);
         }
-        console.log(years[i]);
+        //console.log(years[i]);
         salesData.push({
             yearlySalesTotal: faker.datatype.number({ min: 10000, max: 40000 }),
             yearlyTotalSoldUnits:  faker.datatype.number({ min: 100, max: 400 }),
@@ -71,6 +71,8 @@ const SaleResolvers = {
             return res;
             }catch(exec){
                console.error(exec.toString());
+               throw new Error(exec.toString());
+
             }
         },
     },

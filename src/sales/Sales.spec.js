@@ -30,4 +30,28 @@ describe("GraphQL API tests", () => {
     expect(response.body.data.visitorquery[0]).to.have.property('totalVisitors');
     expect(response.body.data.visitorquery[0]).to.have.property('year'); 
    });
+
+   it("should return sales data", async () => {
+    const query = `
+      query {
+        salesquery {
+          _id
+          yearlySalesTotal
+          yearlyTotalSoldUnits
+          year
+          targetSales
+        }
+      }
+    `;
+    const response = await testServer.executeOperation({
+        query: query,
+      });
+
+      expect(response.body.data).to.have.property('salesquery');
+      expect(response.body.data.salesquery[0]).to.have.property('yearlySalesTotal');
+      expect(response.body.data.salesquery[0]).to.have.property('yearlyTotalSoldUnits');
+      expect(response.body.data.salesquery[0]).to.have.property('year');
+      expect(response.body.data.salesquery[0]).to.have.property('targetSales');
+   });
 });
+
